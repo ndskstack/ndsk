@@ -1,0 +1,14 @@
+{
+  "name": "nodestack",
+  "version": "1.0.0",
+  "description": "nodeStack is a full-stack framework for JavaScript developers",
+  "scripts": {
+    "dev": "ndsk",
+    "build": "ndsk build",
+    "start": "ndsk start"
+  },
+  "author": "rockyshi1993@gmail.com",
+  "dependencies": {
+    "@ndsk/ndsk": "^1.0.12"
+  }
+}
