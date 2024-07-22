@@ -1,4 +1,4 @@
-- **[Chinese](https://github.com/rockyshi1993/nodestack/blob/main/README_ZH.md)** 
+- **[中文](https://github.com/rockyshi1993/nodestack/blob/main/README_ZH.md)** 
 - **[English](https://github.com/rockyshi1993/nodestack/blob/main/README.md)**
 # What is nodestack?
 [nodestack](https://nodestack.dev) It is a full-stack framework for JavaScript developers. It is designed to be very simple, allowing you to create high-performance, high-quality programs with minimal code, all for the purpose of improving development efficiency.[node](https://nodejs.org/)、[hapi](https://hapi.dev/)、[react](https://react.dev/)、[mongodb](https://www.mongodb.com/)etc. to build, use [esbuild](https://esbuild.github.io/) As a compilation tool.
