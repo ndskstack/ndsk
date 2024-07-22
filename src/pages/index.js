@@ -1,5 +1,5 @@
 
-const App = ({initialProps:{text,title}})=>{  
+const App = ({text,title})=>{  
   return (
     <html>
       <head>
