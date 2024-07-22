@@ -264,6 +264,10 @@ Now that you have the necessary packages installed, let’s get started.
         }
 3. Next, open http://127.0.0.1:3000/index1?id=1 to see the URL parameters.
 
+#### How to access static files
+- Create a static folder in the root directory and add a picture file named test.png
+- Now you can open http://127.0.0.1:3000/static/test.png
+
 #### RESTful API
 1. Create api.js in the routes directory and enter the following code
 

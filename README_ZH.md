@@ -265,6 +265,10 @@
         }
 3. 接下来打开 http://127.0.0.1:3000/index1?id=1 访问即可看到url参数 
 
+#### 如何访问静态文件
+- 在根目录创建static文件夹，并添加一个名为 test.png 图片文件
+- 现在你可以打开 http://127.0.0.1:3000/static/test.png
+
 #### RESTful API
 1. 在routes目录创建api.js,并输入以下代码
 
