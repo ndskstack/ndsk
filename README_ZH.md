@@ -1,37 +1,38 @@
-- **[Chinese](https://github.com/rockyshi1993/nodestack/blob/main/README_ZH.md)** 
+
+- **[中文](https://github.com/rockyshi1993/nodestack/blob/main/README_ZH.md)** 
 - **[English](https://github.com/rockyshi1993/nodestack/blob/main/README.md)**
-# What is nodestack?
-[nodestack](https://nodestack.dev) It is a full-stack framework for JavaScript developers. It is designed to be very simple, allowing you to create high-performance, high-quality programs with minimal code, all for the purpose of improving development efficiency.[node](https://nodejs.org/)、[hapi](https://hapi.dev/)、[react](https://react.dev/)、[mongodb](https://www.mongodb.com/)etc. to build, use [esbuild](https://esbuild.github.io/) As a compilation tool.
+# 什么是nodestack?
+[nodestack](https://nodestack.dev) 是一个面向 JavaScript 开发人员的全栈框架，它设计的非常简单，允许您使用最少的代码创建高性能、高质量的程序，一切皆为了提高开发效率。主要使用[node](https://nodejs.org/)、[hapi](https://hapi.dev/)、[react](https://react.dev/)、[mongodb](https://www.mongodb.com/)等进行构建，使用[esbuild](https://esbuild.github.io/)作为编译工具。
 
-**Advantage:**
-- No configuration required
-- Very simple, small, safe, fast, and ready to use
-- Supports automatic code updates, no need to restart the server with tools such as nodemon after each code modification.
-- Compile speed is increased by 20-100 times using esbuild.
-- Powerful routing function.
-- Supports ES5\ES6+ at the same time
+**优点：**
+- 无需配置
+- 非常简单、小巧、安全、快速、开箱即用
+- 支持代码自动更新，每次修改代码后无需用nodemon等工具重启服务器。
+- 使用esbuild编译速度提高20-100倍。
+- 强大的路由功能。
+- 同时支持ES5\ES6+
 
-**Not supported:**
-- TypeScript is not supported. You can use Joi for type validation in Javascript.
-- HRM hot update is not supported. Nodestack uses liveReload for page reload.
+**不支持：**
+- 不支持 TypeScript。您可以在Javascript中使用 Joi 进行类型验证。
+- 不支持 HRM 热更新。Nodestack 使用 liveReload 进行页面重新加载。
 
-This is a new project, so if you run into problems, feel free to ask!
+这是一个新项目，如果遇到问题，欢迎提问！
 
-**Nodestack is based on server-side rendering (SSR) and the backend is based on hapi. You can find it [Here](https://hapi.dev) View all the backend documentation. The frontend uses React, You can [Here](https://react.dev/learn/your-first-component) View related documents**
+**nodestack以服务端渲染(SSR)为主，后端基于hapi，你可以在 [此处](https://hapi.dev) 查看后端所有文档，前端使用React，你可以在 [此处](https://react.dev/learn/your-first-component) 查看相关文档**
 
-# how to install
-First, make sure your computer has node >= v20 installed and execute the following command
+# 如何安装
+首先确认你的电脑已经安装 node >= v20 版本,并执行以下命令
 
     $ mkdir nodestack && cd nodestack && npm init
     $ npm i @ndsk/ndsk
 
-Now that you have the necessary packages installed, let’s get started.
+现在你已安装必要的包，接下来让我们继续开始
    
    
-# Start with Routing
+# 从路由开始
 
-- Create a src folder in the root directory
-- Create a pages directory under the src directory and add the index.js file, enter the following code
+- 在根目录创建src文件夹
+- 在src目录下创建pages目录，并添加index.js文件，输入以下代码
 
         export default (props)=>{  
             return (
@@ -47,28 +48,28 @@ Now that you have the necessary packages installed, let’s get started.
                 </html>
             );
         }
-- Create a routes directory under the src directory and add an index.js file accordingly. Enter the following code
+- 在src目录下创建routes目录，并相应添加index.js文件，输入以下代码   
 
         export default async (request,h)=>{
             return h.render(); 
         }
 
-- Add the following command in package.json
+- 在package.json添加以下命令
 
         "scripts": {
             "dev": "ndsk",              
             "start": "ndsk start"       //ndsk start --pm2
             "build": "ndsk build",
         },
-- Execute ``npm run dev`` in the terminal and open a browser to visit http://127.0.0.1:3000 Now you have created a simple route and can access its page. Execute ``npm run build`` to compile and package, and then execute ``npm run start`` to start in the production environment
-- You don't need to configure the entry file and deal with various hydration issues, because the system has automatically configured it for you. Nodstack is designed to be very simple. You only need to write page components.
-- The framework supports ``css`` ``sass`` by default. You can import asset files in the following ways
+- 在终端执行 ``npm run dev``，开浏览器访问  http://127.0.0.1:3000 现在你已经创建了一个简单的路由，并能访问其页面。执行``npm run build``进行编译打包， 然后执行``npm run start``在生产环境启动
+- 你无需配置入口文件，以及处理水合各种问题，因为系统都已经自动帮你配置好，nodstack设计的非常简单。你只需要编写页面组件即可。
+- 框架默认支持``css`` ``sass``，你可以使用以下方式导入资产文件
 
-        import "../xxx.sass";                 //Importing from a relative path
-        import "/src/xxx/xxx.sass";           //Import from the project src directory
-        import "/node_modules/xxx/xxx.sass";  //Importing from a module
+        import "../xxx.sass";                 //从相对路径导入
+        import "/src/xxx/xxx.sass";           //从项目src目录导入
+        import "/node_modules/xxx/xxx.sass";  //从模块导入
 
-- In your project, you can use ``react``'s ``lazy, Suspense`` to perform delayed or asynchronous loading, such as the following:
+- 在项目中你可以使用``react``的``lazy, Suspense``来进行延迟或异步加载,例如以下：
     
         import { lazy,Suspense,useState } from 'react';
         const Test = lazy(() => import('./test')); 
@@ -85,7 +86,7 @@ Now that you have the necessary packages installed, let’s get started.
             )
         }
         
-- Framework Usage [esbuild](https://esbuild.github.io/api/) Compile. If necessary, you can define esbuild fields in the ndsk.config.js configuration file created in the project root directory to configure it, for example:
+- 框架使用 [esbuild](https://esbuild.github.io/api/) 编译，如果需要，你可以在项目根目录创建``ndsk.config.js``配置文件中定义esbuild字段来进行配置，例如：
 
         module.exports = (isPro)=>{
             return {
@@ -95,10 +96,10 @@ Now that you have the necessary packages installed, let’s get started.
                 }
             }
         }
-- **Note** The framework uses a single entry point for bundling by default. If you need to enable code ``splitting:true``, you can [Here](https://esbuild.github.io/api/#splitting) See the affected code examples. This configuration is not affected in the development environment.
-#### How to render a specific page
-- Use ``h.render()`` in the route to render the page. By default, the files in the corresponding pages directory are rendered. If you need to specify a page to render, you can write it like this
-1. Create other.js in the pages directory and enter the following code
+- **注意事项** 框架默认使用单个入口点进行捆绑， 如果你需要启用代码 ``splitting:true``，可以在 [此处](https://esbuild.github.io/api/#splitting) 查看受影响的代码示例，开发环境下此配置不受影响。
+#### 如何渲染指定页面
+- 在路由中使用``h.render()``渲染页面，默认渲染对应的pages目录下文件，如果需要指定渲染某个页面可以这样写
+1. 在pages目录创建other.js,并输入以下代码 
 
         export default (props)=>{  
             return (
@@ -114,23 +115,23 @@ Now that you have the necessary packages installed, let’s get started.
                 </html>
             );
         }
-2. Modify the routes/index.js file to the following content       
+2. 修改routes/index.js文件为以下内容        
 
         export const page = 'other.js'
         export default async (request,h)=>{
             return h.render(); 
         }
 
-3. Open your browser and visit http://127.0.0.1:3000. You should see the other page rendered. If you want to render pages/other/test.js, you should define it like this
+3. 打开浏览器访问 http://127.0.0.1:3000 你应该看到渲染了other页面，如果你要渲染pages/other/test.js,你应该这样定义
 
         export const page = '/other/test.js
         export default async (request,h)=>{
             return h.render(); 
         }
 
-#### How to pass data to the page
-- Nodestack routing is based on [hapi](https://hapi.dev/api/?v=21.3.3#route-options) Use ``h.render()`` to render the page. You can use ``h.render(props)`` to pass data to the page. ``props`` is an ``Object`` object
-1. Modify pages/other.js to the following content
+#### 如何传递数据给页面
+- nodestack路由基于[hapi](https://hapi.dev/api/?v=21.3.3#route-options),使用``h.render()``来进行页面渲染，你可以使用``h.render(props)``给页面传递数据，``props``是一个``Object``对象
+1. 修改pages/other.js为以下内容
 
         export default (props)=>{  
             return (
@@ -146,17 +147,17 @@ Now that you have the necessary packages installed, let’s get started.
                 </html>
             );
         }
-2. Modify routes/index.js to the following content
+2. 修改routes/index.js为以下内容
 
         export const page = 'other.js'
         export default async (request,h)=>{
             return h.render({text:"this is other page"}); 
         }    
-3. Open your browser and visit http://127.0.0.1:3000. Your page should show ``this is other page``.         
+3. 打开浏览器访问 http://127.0.0.1:3000 你的页面应该显示了``this is other page``。          
 
-#### How to define the layout page
+#### 如何定义layout页面  
 
-- In the past, you might write this when using react to introduce layout components, for example, using ``next.js + express`` or other frameworks to implement server-side rendering SSR. If many pages introduce this layout component and need to pass data, it will become very troublesome. You may need to do a lot of repetitive things. Next, let's see how nodestack can easily implement this function.
+- 在以前使用react引入layout组件你或许会这样写，例如使用``next.js + express``或其它框架来实现服务端渲染SSR，如果有很多页面引入这个layout组件并需要传递数据的情况下会变得非常麻烦。你可能需要做很多重复的事情。接下来看下nodestack如何简单实现此功能。
 
         import Layout from './layout';
         export default (props)=>{  
@@ -169,7 +170,7 @@ Now that you have the necessary packages installed, let’s get started.
             );
         }
 
-- First, we create a layout.js file in the pages directory and enter the following content
+- 首先我们先在pages目录创建layout.js文件，并输入以下内容
 
         export default (props)=>{  
             return (
@@ -188,7 +189,7 @@ Now that you have the necessary packages installed, let’s get started.
             );
         }
 
-- Modify pages/other.js to the following content. You need to delete the HTML header part because it has been defined in layout.js, otherwise react will appear [水合](https://react.nodejs.cn/reference/react-dom/client/hydrateRoot#suppressing-unavoidable-hydration-mismatch-errors) Report an error
+- 将pages/other.js修改为以下内容，需要删除html头部分，因为已经在layout.js定义了，否则react会出现[水合](https://react.nodejs.cn/reference/react-dom/client/hydrateRoot#suppressing-unavoidable-hydration-mismatch-errors)报错
 
         export default (props)=>{  
             return (
@@ -199,18 +200,18 @@ Now that you have the necessary packages installed, let’s get started.
         }
 
 
-- Open the browser and visit http://127.0.0.1:3000. You can see that the page has automatically loaded the layout component.
+- 打开浏览器访问 http://127.0.0.1:3000 可以看到页面已经自动加载了layout组件
 
-#### How to pass data to layout
+#### 如何给layout传递数据
 
-- Create a layout.js file in the routes directory and enter the following content. Note: Use ``return {}`` directly in layout instead of ``h.render()``
+- 在routes目录相应创建layout.js文件，并输入以下内容，注意：layout中直接使用 ``return {}``，而不是``h.render()``
 
         export default async (request,h)=>{
             return {text:"this is layout page"}; 
         }  
 
-- Open your browser and visit http://127.0.0.1:3000. Your page should show the data from the layout route.
-- It will be automatically loaded after creating layout.js. If you need to turn it off, you can define it in routes/index.js like this
+- 打开浏览器访问 http://127.0.0.1:3000 你的页面应该显示了来自layout路由的数据
+- 创建layout.js之后会自动加载，如果需要关闭，你可以在routes/index.js这样定义
 
         exprot const layout = false;
         export const page = 'other.js'
@@ -218,7 +219,7 @@ Now that you have the necessary packages installed, let’s get started.
             return h.render({text:"this is other page"}); 
         } 
 
-- You can also customize the layout components that need to be loaded. For example, the following will automatically load the layout components in order.
+- 你也可以自定义指定需要加载的layout组件，例如以下，将会按顺序自动加载layout组件
 
         exprot const layout = ['layout.js','other/layout','test.js];
         export const page = 'other.js'
@@ -226,25 +227,25 @@ Now that you have the necessary packages installed, let’s get started.
             return h.render({text:"this is other page"}); 
         } 
 
-- **Note**: If you need to pass data to the layout component, you must create the corresponding layout file in the routes directory.
+- **注意**：如果你需要给layout组件传递数据，则必须在routes目录下创建对应的layout文件。
 
-#### How to customize the routing url
-- By default, the route url corresponds to the routes directory structure, for example:
-    - Create test.js in routes, you should visit http://127.0.0.1:3000/test
-    - Create test/index.js in routes, if the above test.js already exists, you should visit http://127.0.0.1:3000/test/index otherwise http://127.0.0.1:3000/test
+#### 如何自定义路由url
+- 默认情况下路由url对应routes目录结构，例如：
+    - 在routes创建test.js，你应该访问 http://127.0.0.1:3000/test 
+    - 在routes创建test/index.js，如果上面的test.js已存在，你应该访问 http://127.0.0.1:3000/test/index 否则 http://127.0.0.1:3000/test 
     
-- You can use path to customize the route url, for example: modify routes/index.js to the following, **Note**: The route is unique
+- 你可以使用path来自定义路由url,例如：修改routes/index.js为以下，**注意**：路由是唯一的
 
         export const path = '/index1'
         export const page = '/other.js
         export default async (request,h)=>{
             return h.render(); 
         }
-- Next, open http://127.0.0.1:3000/index1 to access
+- 接下来打开 http://127.0.0.1:3000/index1 即可访问
 
-#### How to get url parameters
+#### 如何获取url参数
 
-1. Modify routes/index.js to the following
+1. 修改routes/index.js为以下
 
         export const path = '/index1'
         export const page = '/other/test.js
@@ -253,7 +254,7 @@ Now that you have the necessary packages installed, let’s get started.
             return h.render({query,text:"this is other page"});
         }
 
-2. pages/other.js is modified to the following content
+2. pages/other.js修改为以下内容
 
         export default (props)=>{  
             return (
@@ -262,10 +263,10 @@ Now that you have the necessary packages installed, let’s get started.
                 </div>
             );
         }
-3. Next, open http://127.0.0.1:3000/index1?id=1 to see the URL parameters.
+3. 接下来打开 http://127.0.0.1:3000/index1?id=1 访问即可看到url参数 
 
 #### RESTful API
-1. Create api.js in the routes directory and enter the following code
+1. 在routes目录创建api.js,并输入以下代码
 
         export const method = 'POST'; //['GET','POST']
         export default async (request,h)=>{
@@ -273,7 +274,7 @@ Now that you have the necessary packages installed, let’s get started.
             return payload
         }
 
-2. pages/other.js is modified to the following content
+2. pages/other.js修改为以下内容
 
         import { useState } from "react";
             export default (props)=>{  
@@ -294,24 +295,24 @@ Now that you have the necessary packages installed, let’s get started.
             );
         }
 
-- **nodestack backend core is based on hapi**
-- You can view the detailed documentation of ``request`` parameters here https://hapi.dev/api/?v=21.3.3#request
-- You can view the detailed configuration of ``routes`` here https://hapi.dev/api/?v=21.3.3#route-options
+- **nodestack后端核心基于hapi**
+- 你可以从这里查看获取``request``各项参数的详细文档 https://hapi.dev/api/?v=21.3.3#request
+- 你可以在这里查看路由``routes``详细配置 https://hapi.dev/api/?v=21.3.3#route-options
 
 ---
 
-#### How to create middleware
-1. Create a middleware directory under the src file
-2. Add the test.js file under the middleware directory and enter the following content
+#### 如何创建中间件
+1. 在src文件下创建middleware目录
+2. 在middleware目录下添加test.js文件，并输入以下内容
 
         module.exports = {
-            name:"test", //Your middleware name
+            name:"test", //你的中间件名称名称
             handler:async (request,h)=>{
                 h.next({name:"this is test moddleware"});
             }
         }
 
-3. Modify routes/api.js to the following content
+3. 修改routes/api.js为以下内容
 
         export const method = 'GET'; //['GET','POST']
         export const options = {
@@ -325,10 +326,10 @@ Now that you have the necessary packages installed, let’s get started.
             return request.middleware.test
         }
 
-4. Open http://127.0.0.1:3000/api and you should be able to see the test middleware content. The middleware uses ``h.next(...)`` to continue processing the life cycle and uses ``return ...`` to end the current life cycle. You can use ``request.route.settings.plugins.middleware`` to get the current route middleware configuration. For example, modify test.js in the middleware directory to the following content
+4. 打开 http://127.0.0.1:3000/api 你应该能够看到test中间件内容，中间件使用 ``h.next(...)``继续处理生命周期，使用 ``return ...``结束当前生命周期，你可以使用``request.route.settings.plugins.middleware``来获取当前路由中间件配置，例如：把middleware目录下test.js修改为以下内容
 
         module.exports = {
-            name:"test", //Your middleware name
+            name:"test", //你的中间件名称名称
             handler:async (request,h)=>{
                 const config = request.route.settings.plugins.middleware.test;
                 console.log(config);
@@ -342,50 +343,50 @@ Now that you have the necessary packages installed, let’s get started.
                 }
             }
         }
-5. You can enter the following URLs to view their responses 
+5. 你可以分别输入以下网址查看各自响应 
 - http://127.0.0.1:3000/api
 - http://127.0.0.1:3000/api?id=1 
 - http://127.0.0.1:3000/api?id=2  
 
-#### How to create a plugin
-1. Create a plugins directory under the src file
-2. Add the test.js file under the plugins directory and enter the following content
+#### 如何创建插件   
+1. 在src文件下创建plugins目录
+2. 在plugins目录下添加test.js文件，并输入以下内容
 
         exports.plugin  = {
             name: 'example',
             register: async (server) =>{
-                const collection = server.mongo.client.db('ndsk').collection('xxx');   //Get database collection
+                const collection = server.mongo.client.db('ndsk').collection('xxx');   //获取数据库集合
                 server.ext('onRequest', async function (request, h) {
                     //...code
                     return h.continue;
                 });
             }
         }
-3. The plugin continues the current life cycle with ``return h.continue;``. Modifying or adding plugins requires restarting the server. If you don't want to restart manually, you can configure pm2 to automatically listen for restarts. Nodestack has built-in pm2. You can add ``--pm2`` to start the service at startup, for example:
+3. 插件以``return h.continue;``继续当前生命周期，修改或添加插件生效需要重启服务器，如果不想手动重启你可以配置pm2来自动监听重启，nodestack内置pm2,你可以在启动的时候添加 ``--pm2``来启动服务，例如：
 
         "scripts": {
             "dev": "ndsk --pm2",
             "dev": "ndsk start --pm2",
         }
 
-- You can [Here](https://hapi.dev/tutorials/plugins/?lang=en_US) View plugin tutorials
+- 你可以在 [此处](https://hapi.dev/tutorials/plugins/?lang=en_US) 查看插件相关教程
 
-#### How to enable rate limiting
-- To prevent various attacks, the framework is configured with rate limiting by default. You can configure it globally in ``ndsk.config.js``. The following configuration limits each user to 10 accesses per second
+#### 如何开启速率限制
+- 为了防止各类攻击，框架默认配置了速率限制功能，你可以在``ndsk.config.js``中进行全局配置，以下配置限制每个用户每1秒只能访问10次
 
         module.exports = (isPro)=>{
             return {
                 server:{
                     plugins:{
                         ratelimit:{
-                            userLimit:10,                         //The total number of requests that a user can make in each time period
-                            userCacheExp:1000                     //Cache expiration time
+                            userLimit:10,                         //用户每个时间段可以发出的总请求数
+                            userCacheExp:1000                     //缓存过期时间
                         }
                     }
                 }  
             }
         }
-- You can also configure it separately in the route, for example, modify routes/api.js and add the following content to limit the current route to only one access per user every 1 second
+- 你也可以在路由中单独配置，例如修改routes/api.js 添加以下内容,限制当前路由每个用户每1s只能访问1次
 
         export const options = {
             plugins:{
@@ -395,7 +396,7 @@ Now that you have the necessary packages installed, let’s get started.
                 }
             }
         }
-- You can also configure it like this, for example, modify routes/api.js and add the following content to limit the current route to only be accessed once every 10 seconds (including all users)
+- 你还可以这样配置，例如以下，例如修改routes/api.js 添加以下内容,限制当前路由每10s只能访问1次(所有用户在内)
 
         export const options = {
             plugins:{
@@ -406,18 +407,18 @@ Now that you have the necessary packages installed, let’s get started.
             }
         }
 
-- Provide the following configuration
-   - ``enabled`` Set this to ``false`` in a route configuration to bypass all rate limits for that route.
-   - ``userLimit`` The total number of requests that each user can make per period of time. Set to ``false`` to disable the limit on the number of requests per user
-   - ``userCacheExp`` The cache period used to store user rate limit information is ``ms``
-   - ``pathLimit`` The total number of requests that can be made on a given path per time period. Set to ``false`` to disable limiting the number of requests per path.
-   - ``pathCacheExp`` The name of the cache segment used to store path rate limit information.
-   - ``userPathLimit`` The total number of requests that can be made on a given path per user per time period. Set to ``false`` to disable limiting the number of requests per user per path
-   - ``userPathCacheExp`` The cache period in milliseconds used to store userPath rate limit information
-   - ``ignorePathParams`` If ``false``, the limit will apply to routes (``/route/{param}``: a single cache entry) rather than paths (``/route/1`` or ``/route/2: 2`` different cache entries).
+- 提供以下配置
+   - ``enabled`` 在路由配置中将其设置为``false``可绕过该路由的所有速率限制
+   - ``userLimit`` 每个用户每段时间内可发出的请求总数,设置为``false``可禁用限制每个用户的请求数
+   - ``userCacheExp`` 用于存储用户速率限制信息的缓存周期``ms``
+   - ``pathLimit`` 每个时间段内给定路径上可发出的请求总数。设置为``false``可禁用限制每个路径的请求数。
+   - ``pathCacheExp`` 用于存储路径速率限制信息的缓存段的名称``ms``
+   - ``userPathLimit`` 每个用户每个时间段内可在给定路径上发出的总请求数。设置为``false``可禁用限制每个用户每个路径的请求数
+   - ``userPathCacheExp`` 用于存储 userPath 速率限制信息的缓存周期``ms``
+   - ``ignorePathParams`` 如果为``false``，则限制将应用于路由（``/route/{param}``：单个缓存条目）而不是路径（``/route/1``或``/route/2：2`` 个不同的缓存条目
 
-#### How to add a scheduled task
-- You can add the following code to the configuration file ndsk.config.js
+#### 如何添加定时任务
+- 你可以在配置文件ndsk.config.js中添加以下代码
     
         module.exports = (isPro)=>{
             return {
@@ -425,11 +426,11 @@ Now that you have the necessary packages installed, let’s get started.
                     plugins:{
                         cron:[
                             {
-                                name:"job",                        //mission name
-                                time:'*/1 * * * * *',              //Expression, here it means executing once per second
-                                timezone:"Asia/Shanghai",          //Time zone
-                                scheduled:true,                    //Task status, true means started
-                                handler:(server)=>{                //Handler, server from the server
+                                name:"job",                        //任务名称
+                                time:'*/1 * * * * *',              //表达式,这里表示每秒执行1次
+                                timezone:"Asia/Shanghai",          //时区
+                                scheduled:true,                    //任务状态，ture为启动
+                                handler:(server)=>{                //处理程序，server来自服务器
                                     // const collection = server.mongo.client.db('ndsk').collection('xxx');
                                     // fetch('http://127.0.0.1:3000/api').then(async res=>{
                                     //     console.log(await res.text())
@@ -442,18 +443,18 @@ Now that you have the necessary packages installed, let’s get started.
                 }  
             }
         }
-- You can add multiple tasks. The ``time`` format document can be viewed at http://crontab.org/
-- Modify package.json and use the built-in pm2 to start multiple threads without causing repeated execution of tasks
+- 你可以添加多个任务，``time`` 格式文档可以在 http://crontab.org/ 查看
+- 修改package.json,使用内置pm2启动多线程情况下不会造成重复执行任务
 
         "scripts": {
             "dev": "ndsk --pm2",
             "start": "ndsk start --pm2"
         },
 
-#### How to configure the socket
-1. you can use [``@hapi/nes``](https://hapi.dev/module/nes/) To configure the socket
-2. Terminal execution `` npm i  @hapi/nes ``
-3. Add the nes.js file in the src/plugins directory and register ``Nes``
+#### 如何配置socket
+1. 你可以使用 [``@hapi/nes``](https://hapi.dev/module/nes/) 来配置socket
+2. 终端执行 `` npm i  @hapi/nes ``
+3. 在src/plugins目录下添加nes.js文件，注册``Nes``
 
         const Nes = require('@hapi/nes');
         exports.plugin  = {
@@ -462,17 +463,17 @@ Now that you have the necessary packages installed, let’s get started.
                 await server.register(Nes);
             }
         }
-4. [Here](https://hapi.dev/module/nes/) View related documents
+4. 在 [此处](https://hapi.dev/module/nes/) 查看相关文档
         
-#### How to configure mongodb
-1. Create ndsk.config.js in the project root directory and enter the following content to support configuring multiple mongodbs
+#### 如何配置mongodb
+1. 在项目根目录创建ndsk.config.js，并输入以下内容，支持配置多个mongodb
 
         module.exports = (isPro)=>{
             return {
                 server:{
                     plugins:{
                         mongodb:{
-                            name:"mongo",  //Plugin Name
+                            name:"mongo",  //插件名称
                             client:[
                                 {
                                     name:'client',   //request.mongo.client
@@ -490,23 +491,23 @@ Now that you have the necessary packages installed, let’s get started.
                 }
             }
         }
-2. Next, you can use ``request.mongo.client`` in the route to perform database operations. For example, modify routes/api.js to the following content
+2. 接下来你可以在路由中使用 ``request.mongo.client`` 进行数据库操作，例如：把routes/api.js修改为以下内容
 
         export default async (request,h)=>{
             const client = request.mongo.client
-            await client.admin.createDatabase('ndsk','test');   //Create the ndsk database and add the test collection
+            await client.admin.createDatabase('ndsk','test');   //创建ndsk数据库并添加test集合
             const collection = client.db('ndsk').collection('test'); 
-            await collection.insertOne({username:'test'});  //Add a piece of data to the collection
+            await collection.insertOne({username:'test'});  //向集合中添加一条数据
             return collection.findOne();     
         }
 
-3. **Note** Your mongodb version must be >= v5.0
+3. **注意** 你的mongodb版本必须 >= v5.0
 
 #### CRUD
-- Use the ``request.mongo.client.admin`` link to manage the database
+- 使用``request.mongo.client.admin``链接管理数据库
 
         const admin = request.mongo.client.admin;
-- ``admin`` The following operations are supported  
+- ``admin`` 支持以下操作  
     -  [``createDatabase``](https://www.mongodb.com/docs/v5.3/reference/method/db.createCollection/)
     -  [``listDatabases``](https://mongodb.github.io/node-mongodb-native/3.6/api/Admin.html#listDatabases)    
     -  [``buildInfo``](https://mongodb.github.io/node-mongodb-native/3.6/api/Admin.html#buildInfo)
@@ -520,10 +521,10 @@ Now that you have the necessary packages installed, let’s get started.
     -  [``startSession``](https://www.mongodb.com/zh-cn/docs/manual/core/transactions/)
     -  [``watch``](https://mongodb.github.io/node-mongodb-native/3.6/api/MongoClient.html#watch)
     ---
-- Use ``request.mongo.client.db(xxx)`` to operate the database, ``xxx`` is your database name
+- 使用``request.mongo.client.db(xxx)``操作数据库,``xxx``你的数据库名称
 
         const db = request.mongo.client.db('ndsk');
-- ``db`` The following operations are supported  
+- ``db`` 支持以下操作    
     -  [``createCollection``](https://www.mongodb.com/docs/manual/reference/method/db.createCollection)
     -  [``renameCollection``](mongodb.com/docs/manual/reference/method/db.collection.renameCollection/)    
     -  [``dropCollection``](https://mongodb.github.io/node-mongodb-native/3.6/api/Db.html#dropCollection)
@@ -531,10 +532,10 @@ Now that you have the necessary packages installed, let’s get started.
     -  [``listCollections``](https://mongodb.github.io/node-mongodb-native/3.6/api/Db.html#listCollections)
     -  [``stats``](https://mongodb.github.io/node-mongodb-native/3.6/api/Db.html#stats)
     ---
-- Use ``request.mongo.client.db('ndsk').collection(xxx)`` to operate the database, ``xxx`` is your collection name
+- 使用``request.mongo.client.db('ndsk').collection(xxx)``操作数据库,``xxx``你的集合名称
 
         const collection = request.mongo.client.db('ndsk').collection('xxx');
-- ``collection`` The following methods are supported
+- ``collection`` 支持以下方法 
     -  [``find``](https://mongodb.github.io/node-mongodb-native/3.6/api/Cursor.html)
     -  [``aggregate``](https://www.mongodb.com/zh-cn/docs/manual/reference/method/db.collection.aggregate/)  
     -  [``insertOne``](https://www.mongodb.com/docs/manual/reference/method/db.collection.insertOne/)
@@ -558,10 +559,10 @@ Now that you have the necessary packages installed, let’s get started.
     -  [``dropIndex``](https://www.mongodb.com/docs/manual/reference/method/db.collection.dropIndex/)
     -  [``dropIndexes``](https://www.mongodb.com/docs/manual/reference/method/db.collection.dropIndexes)
     -  [``watch``](https://www.mongodb.com/docs/drivers/node/current/usage-examples/changeStream/)
-    -  ``pagination`` A method customized specifically for paging queries, which automatically optimizes the ``aggregate`` operation, can make querying tens of millions or even higher data stress-free, use as follows
+    -  ``pagination`` 专门为分页查询自定义的方法，并自动优化了``aggregate``操作，能够使得在千万级乃至更高数据查询毫无压力， 使用如下
 
             return await collection.pagination(options);
-- ``options`` in ``pagination`` accepts the following parameters
+- ``pagination``中的``options``接受以下参数
     - query
     - sort
     - [page](https://www.mongodb.com/docs/manual/reference/operator/aggregation/size/)
@@ -573,9 +574,9 @@ Now that you have the necessary packages installed, let’s get started.
        
 
 ####  如何进行字段校验
-1. Although mongodb comes with a field validation function, it may not be perfect for us. Nodestack uses [Joi](https://joi.dev/) To verify, let's see how to implement it
-2. Create a mongodb/client/ndsk directory in the src directory and add the test.js file
-3. ``client`` is your name in the mongodb configuration, ``ndsk`` is the database name, ``test.js`` represents the collection name, and add the following content to it
+1. 虽然mongodb自带了字段校验功能，但是或许对我们来说用的并不是那么完美，nodestack使用[Joi](https://joi.dev/)来校验，下面看下如何实现
+2. 在src目录创建mongodb/client/ndsk目录，并添加test.js文件
+3. ``client``是你在mongodb配置中的名称，``ndsk``是数据库名称，``test.js``代表集合名称，并在其添加以下内容
 
         const Joi = require('joi');
 
@@ -591,7 +592,7 @@ Now that you have the necessary packages installed, let’s get started.
             age:Joi.number().min(0).required()
         }).required();
 
-4. Now modify routes/api.js to the following content
+4. 现在把routes/api.js修改为以下内容
 
         export default async (request,h)=>{
             const client = request.mongo.client
@@ -599,29 +600,30 @@ Now that you have the necessary packages installed, let’s get started.
             await collection.insertOne({username:'rocky',age:'test'});  //向集合中添加一条数据
             return collection.findOne();     
         }
-5. Visit http://127.0.0.1:3000/api. You should see an error page with the message ``age must be a number``.
-6. Mongodb uses Joi to perform field validation. You can also add some default values ​​to the validation rules, customize error prompts, etc.
-7. **Note:**
-    -   ``insert`` should be validated using ``Joi.array().items({...}).required().single()``, because you may be inserting data in batches
-    -   ``update`` should use ``Joi.object().keys({}).required()`` to validate
+5. 访问 http://127.0.0.1:3000/api 你应该能看到一个错误页面并提示``age must be a number``.
+6. mongodb使用Joi来进行字段校验，你也可以在校验规则中添加一些默认值，自定义错误提示等
+7. **注意：** 
+    -   ``insert``应该使用``Joi.array().items({...}).required().single()``来校验，因为你可能会批量插入数据
+    -   ``update``应该使用``Joi.object().keys({}).required()``来校验
         
-8. **You can [Here](https://joi.dev/) View Joi documentation**
+8. **你可以在 [此处](https://joi.dev/) 查看Joi文档**
 
-#### server configuration
-- Add ndsk.config.js to the root directory
+#### 服务器配置
+- 在根目录添加ndsk.config.js
 
-        module.exports = (isPro)=>{               //isPro is used to determine whether it is a production environment
+        module.exports = (isPro)=>{               //isPro用于判断是否是生产环境
             return {
-                buildDir:"build",                 //Compile directory, default is build
-                compileDir:".ndsk",               //Compilation directory in development mode
-                server:{                          //server configuration
-                    port:isPro ? 3001 : 3000      //The production environment port is configured as 3001, and the development environment port is 3000
+                buildDir:"build",                 //编译目录，默认为build
+                compileDir:".ndsk",               //开发模式下的编译目录
+                 //服务器配置
+                server:{                         
+                    port:isPro ? 3001 : 3000      //生产环境端口配置为3001，开发环境为3000
                     //....
                 },
-                esbuild:{                         //esbuild deployment
+                esbuild:{                         //esbuild配置
                     //...
                 },
-                pm2:isPro ? {                     //PM2 configuration, the current configuration is to open 2 processes for the production environment and fork mode for the development environment
+                pm2:isPro ? {                     //pm2配置,当前配置为生产环境开启2个进程，开发环境fork模式
                     name:"production",
                     exec_mode:"cluster",
                     instances : 2
@@ -631,9 +633,9 @@ Now that you have the necessary packages installed, let’s get started.
             }
         }
 
-- ``server`` Server configuration, click [Here](https://hapi.dev/api/?v=21.3.3#server) See ``server`` related configuration
-- ``esbuild`` Compile configuration, click [Hre](https://esbuild.github.io/api/) See ``esbuild`` related configuration
-- ``pm2`` PM2 configuration, click [Here](https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/) See ``pm2`` related configuration
+- ``server`` 服务器配置，点击 [此处](https://hapi.dev/api/?v=21.3.3#server) 查看``server``相关配置
+- ``esbuild`` 编译配置，点击 [此处](https://esbuild.github.io/api/) 查看``esbuild``相关配置
+- ``pm2`` pm2配置，点击 [此处](https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/) 查看``pm2``相关配置
 
 
 
