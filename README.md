@@ -455,19 +455,54 @@ Now that you have the necessary packages installed, let’s get started.
         },
 
 #### How to configure the socket
-1. you can use [``@hapi/nes``](https://hapi.dev/module/nes/) To configure the socket
-2. Terminal execution `` npm i  @hapi/nes ``
-3. Add the nes.js file in the src/plugins directory and register ``Nes``
+1. You can use [``socket.io``](https://socket.io/) to configure the socket
+2. Run `` npm i socket.io socket.io-client `` in the terminal
+3. Add the socket.js file to the src/plugins directory and fill in the following code
 
-        const Nes = require('@hapi/nes');
+        const { Server } = require("socket.io");
         exports.plugin  = {
-            name: 'nes',
+            name: 'socket',
             register: async (server) =>{
-                await server.register(Nes);
+                const io = new Server(server.listener,{
+                    path:"/socket"
+                });
+                io.use((socket, next) => {
+                    // ..code
+                    next()
+                });
+
+                io.on("connection", (socket) => {
+                    socket.emit('status','Socket connection successful')
+                });
             }
         }
-4. [Here](https://hapi.dev/module/nes/) View related documents
-        
+4. Add the src/routes/socket.js file and fill in the following code
+     
+        export default async (request,h)=>{       
+            return h.render(); 
+        }
+4. Add the src/pages/socket.js file and fill in the following code
+
+        import { useState,useEffect } from "react";
+        import { io } from "socket.io-client";
+
+        export default (props)=>{  
+            const [status,setStatus] = useState('Waiting')
+            useEffect(() => {
+                const socket = io.connect("ws://127.0.0.1:3000", {
+                    path:'/socket', 
+                    transports: ['websocket']
+                });
+                socket.on('status',data=>{
+                    setStatus(data)
+                })
+            },[]);
+            return (
+                <div> {status}</div>
+            );
+        }
+6. Open the URL http://127.0.0.1:3000/socket You should already see the message ``Socket connection successful``
+7. click here](https://socket.io/) View socket.id related documents        
 #### How to configure mongodb
 1. Create ndsk.config.js in the project root directory and enter the following content to support configuring multiple mongodbs
 
@@ -576,7 +611,7 @@ Now that you have the necessary packages installed, let’s get started.
     - [group](https://www.mongodb.com/docs/manual/reference/operator/aggregation/group/)
        
 
-####  如何进行字段校验
+####  How to perform field validation
 1. Although mongodb comes with a field validation function, it may not be perfect for us. Nodestack uses [Joi](https://joi.dev/) To verify, let's see how to implement it
 2. Create a mongodb/client/ndsk directory in the src directory and add the test.js file
 3. ``client`` is your name in the mongodb configuration, ``ndsk`` is the database name, ``test.js`` represents the collection name, and add the following content to it

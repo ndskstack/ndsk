@@ -456,18 +456,54 @@
         },
 
 #### 如何配置socket
-1. 你可以使用 [``@hapi/nes``](https://hapi.dev/module/nes/) 来配置socket
-2. 终端执行 `` npm i  @hapi/nes ``
-3. 在src/plugins目录下添加nes.js文件，注册``Nes``
+1. 你可以使用 [``socket.io``](https://socket.io/) 来配置socket
+2. 终端执行 `` npm i socket.io socket.io-client `` 
+3. 在src/plugins目录下添加socket.js文件,并填入以下代码
 
-        const Nes = require('@hapi/nes');
+        const { Server } = require("socket.io");
         exports.plugin  = {
-            name: 'nes',
+            name: 'socket',
             register: async (server) =>{
-                await server.register(Nes);
+                const io = new Server(server.listener,{
+                    path:"/socket"
+                });
+                io.use((socket, next) => {
+                    // ..code
+                    next()
+                });
+
+                io.on("connection", (socket) => {
+                    socket.emit('status','Socket connection successful')
+                });
             }
         }
-4. 在 [此处](https://hapi.dev/module/nes/) 查看相关文档
+4. 添加src/routes/socket.js文件，并填入以下代码
+     
+        export default async (request,h)=>{       
+            return h.render(); 
+        }
+4. 添加src/pages/socket.js文件，并填入以下代码
+
+        import { useState,useEffect } from "react";
+        import { io } from "socket.io-client";
+
+        export default (props)=>{  
+            const [status,setStatus] = useState('Waiting')
+            useEffect(() => {
+                const socket = io.connect("ws://127.0.0.1:3000", {
+                    path:'/socket', 
+                    transports: ['websocket']
+                });
+                socket.on('status',data=>{
+                    setStatus(data)
+                })
+            },[]);
+            return (
+                <div> {status}</div>
+            );
+        }
+6. 打开网址 http://127.0.0.1:3000/socket 你应该已经能看到 ``Socket connection successful`` 消息
+7. 在 [此处](https://socket.io/) 查看socket.io相关文档
         
 #### 如何配置mongodb
 1. 在项目根目录创建ndsk.config.js，并输入以下内容，支持配置多个mongodb
