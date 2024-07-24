@@ -90,12 +90,37 @@ Now that you have the necessary packages installed, let’s get started.
         module.exports = (isPro)=>{
             return {
                 esbuild:{
-                    splitting:true
                     //...options
                 }
             }
         }
-- **Note** The framework uses a single entry point for bundling by default. If you need to enable code ``splitting:true``, you can [Here](https://esbuild.github.io/api/#splitting) See the affected code examples. This configuration is not affected in the development environment.
+
+#### How to perform server-side rendering (SSR)
+- The framework itself uses SSR by default, using @emotion/styled version v10 or above, you don't need to configure anything
+- However, if you use a front-end component framework such as [mui](https://mui.com/) for development, you may encounter hydration and style issues in server-side rendering. You can make the following configuration.
+        
+        import createCache from '@emotion/cache';
+        createCache({ key:'css' });
+        export default (props)=>{
+            return (
+                <html>
+                    <head>
+                        <title>{props.title}</title>
+                    </head> 
+                    <body> 
+                        <div>
+                            {props.children} 
+                        </div>
+                    </body>
+                </html>
+            );
+        }
+
+- As shown above, you only need to add the following two lines of code at the top of your entry page
+
+        import createCache from '@emotion/cache';
+        createCache({ key:'css' });
+
 #### How to render a specific page
 - Use ``h.render()`` in the route to render the page. By default, the files in the corresponding pages directory are rendered. If you need to specify a page to render, you can write it like this
 1. Create other.js in the pages directory and enter the following code

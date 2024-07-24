@@ -91,12 +91,37 @@
         module.exports = (isPro)=>{
             return {
                 esbuild:{
-                    splitting:true
                     //...options
                 }
             }
         }
-- **注意事项** 框架默认使用单个入口点进行捆绑， 如果你需要启用代码 ``splitting:true``，可以在 [此处](https://esbuild.github.io/api/#splitting) 查看受影响的代码示例，开发环境下此配置不受影响。
+
+#### 如何进行服务端渲染(SSR)
+- 框架本身默认使用SSR，使用 @emotion/styled 版本v10以上， 你无需任何配置，
+- 但是如果你使用 [mui](https://mui.com/) 等前端组件框架进行开发，在服务端渲染中可能会遇到水合、以及样式问题，你可以进行以下配置。
+        
+        import createCache from '@emotion/cache';
+        createCache({ key:'css' });
+        export default (props)=>{
+            return (
+            <html>
+                <head>
+                    <title>{props.title}</title>
+                </head> 
+                <body> 
+                    <div>
+                        {props.children} 
+                    </div>
+                </body>
+            </html>
+            );
+        }
+
+- 如上所示，你只需要在你的入口页面顶部添加以下两行代码即可
+
+        import createCache from '@emotion/cache';
+        createCache({ key:'css' });
+
 #### 如何渲染指定页面
 - 在路由中使用``h.render()``渲染页面，默认渲染对应的pages目录下文件，如果需要指定渲染某个页面可以这样写
 1. 在pages目录创建other.js,并输入以下代码 
