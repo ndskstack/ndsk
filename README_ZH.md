@@ -23,8 +23,8 @@
 # 如何安装
 首先确认你的电脑已经安装 node >= v20 版本,并执行以下命令
 
-    $ mkdir nodestack && cd nodestack && npm init
-    $ npm i @ndsk/ndsk
+    $ mkdir nodestack && cd nodestack 
+    $ npm create nodestack && npm i && npm run dev
 
 现在你已安装必要的包，接下来让我们继续开始
    

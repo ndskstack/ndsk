@@ -22,8 +22,8 @@ This is a new project, so if you run into problems, feel free to ask!
 # how to install
 First, make sure your computer has node >= v20 installed and execute the following command
 
-    $ mkdir nodestack && cd nodestack && npm init
-    $ npm i @ndsk/ndsk
+    $ mkdir nodestack && cd nodestack 
+    $ npm create nodestack && npm i && npm run dev
 
 Now that you have the necessary packages installed, let’s get started.
    
