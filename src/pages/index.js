@@ -1,18 +1,8 @@
 
-const App = ({text,title})=>{  
+export default (props)=>{  
   return (
-    <html>
-      <head>
-        <title>{title}</title> 
-      </head>
-      <body> 
-      <div>
-          {text}
-      </div>   
-      </body>
-    </html>
+    <div className="index">
+      <h1>Hello world!</h1>
+    </div>
   );
-
 }
-
-export default App;
