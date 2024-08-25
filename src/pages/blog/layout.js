@@ -1,13 +1,11 @@
-
-import './style.scss'
 export default (props)=>{  
     return (
-      <html>
+      <html lang="en">
         <head>
-          <title>{props.title}</title> 
+          <title>blog</title> 
         </head>
         <body> 
-          {props.children}
+            {props.children}
         </body>
       </html>
     );
