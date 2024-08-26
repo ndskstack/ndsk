@@ -1,5 +1,5 @@
 export default (props)=>{  
     return (
-        <div>react-index</div>
+        <div>{props.name}</div>
     );
 }

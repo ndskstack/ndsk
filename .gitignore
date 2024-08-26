@@ -19,8 +19,8 @@ pids
 *.pid.lock
 
 #custom dir
-build
-app
+/build
+/app
 .ndsk/
 .ndcc/
 

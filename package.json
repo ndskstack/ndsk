@@ -9,6 +9,8 @@
   },
   "author": "rockyshi1993@gmail.com",
   "dependencies": {
-    "@ndsk/ndsk": "^1.0.43"
+    "@emotion/styled": "^11.13.0",
+    "@ndsk/ndsk": "^1.0.44",
+    "react-router-dom": "^6.26.1"
   }
 }
