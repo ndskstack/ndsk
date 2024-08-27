@@ -16,6 +16,7 @@ export default (props)=>{
                     <ul>
                         <li><a href='/sscr'>Home</a></li>
                         <li><a href='/sscr/about'>About</a></li>
+                        <li><a href='https://www.google.com/' target='_blank'>Google</a></li>
                     </ul>
                 </Menu>
                 <Main>
