@@ -1,7 +1,7 @@
 
 @keyframes typing {from { width: 0 }}
 @keyframes caret {50% { border-right-color: transparent; }}
-html,body{height: 100%;}
+html,body{height: 100%;margin: 0;}
 .index,.about{
 	height:100%;display: flex;justify-content: center;align-items: center;
 	h1 {

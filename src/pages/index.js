@@ -1,15 +1,16 @@
+
 import './style.scss'
 export default (props)=>{  
-    return (
-      <html lang="en">
+  return (
+    <html>
         <head>
-          <title>my-nodestack-app</title> 
+          <title>{props.title}</title> 
         </head>
         <body> 
-        <div className="index">
-        <h1>Hello world!</h1>
-      </div>
+          <div className="index">
+            <h1>Hello world!</h1>
+          </div>
         </body>
       </html>
-    );
+  );
 }
