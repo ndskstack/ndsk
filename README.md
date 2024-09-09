@@ -24,4 +24,4 @@
 | **Remix**          | ~ 1.4s              | ~ 3.8s         | ~ 0.03s              |
 | **Next**           | ~ 2.6s              | ~ 10s         | ~ 0.01s              |
 
-#### **You can view the relevant documentation [Here](https://ndsk.dev)** 
+#### **You can view the full document here [Here](https://ndsk.dev)** 
