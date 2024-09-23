@@ -1,5 +1,7 @@
 
 
+# **You can view the full document here https://ndsk.dev** 
+
 **[ndsk](https://ndsk.dev)** (node ​​stack) is a full-stack framework for JavaScript developers. It is designed to be very simple, allowing you to create secure, high-performance, high-quality programs with minimal code. It has powerful routing, flexible layout modes, fast compilation speed, extensible plug-ins and middleware, and supports server-side rendering (SSR), client-side rendering (CSR), static rendering (SSG), and hybrid mode `SSCR`. It almost makes up for all the shortcomings of other frameworks, all for the purpose of improving development efficiency.
 
 #### Main advantages:
@@ -23,5 +25,3 @@
 | **Ndsk**         | ~ 0.4s             | ~ 1.6s            | ~ 0.008s             |
 | **Remix**          | ~ 1.4s              | ~ 3.8s         | ~ 0.03s              |
 | **Next**           | ~ 2.6s              | ~ 10s         | ~ 0.01s              |
-
-#### **You can view the full document here [Here](https://ndsk.dev)** 
