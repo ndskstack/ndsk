@@ -9,6 +9,10 @@
   },
   "author": "rockyshi1993@gmail.com",
   "dependencies": {
-    "@ndsk/ndsk": "^1.0.76"
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.1",
+    "@ndsk/ndsk": "^1.0.80",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0"
   }
 }

@@ -1,4 +1,3 @@
-
 import {lazy,useState,Suspense} from 'react';
 const About = lazy(() => import('./compontents/about.js'));
 export default (props)=>{  
