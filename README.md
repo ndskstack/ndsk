@@ -20,13 +20,13 @@
 - It has built-in major modules such as `mongodb`, no additional configuration is required, and it supports front-end, back-end, and full-stack development.
 
 # `ndsk` is the fastest framework currently
-#### Comparisons:
+#### Comparison under Ubuntu:
 
-| Framework Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | Startup time(Development)       | Compilation speed(Bundle)            | First screen loading speed(DOMContentLoaded)       |
+| frame&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | start up(Development)       | Compile(Bundle)            | First screen loading(DOMContentLoaded)       |
 | -----------       | -----------       | -----------       | -----------       |
-| **Ndsk**         | ~ 0.37s             | ~ 0.35s            | ~ 0.008s             |
-| **Remix**          | ~ 1.4s              | ~ 3.8s         | ~ 0.03s              |
-| **Next**           | ~ 2.6s              | ~ 10s         | ~ 0.01s              |
+| **Ndsk**         | ~ 0.4s             | ~ 0.4s            | ~ 0.008s             |
+| **Remix**          | ~ 0.7s              | ~ 1.7s         | ~ 0.010s              |
+| **Next**           | ~ 2.2s              | ~ 8s         | ~ 0.008s              |
 
 # Donate
 
