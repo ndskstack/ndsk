@@ -30,7 +30,7 @@
 | **Next**           | ~ 2.2s              | ~ 8s         | ~ 0.008s              |
 
 -
-# He is so fast
+# Start the development environment, compile and start
 ~~~shell
 $ npm run dev
 > My App@1.0.0 dev
