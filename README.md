@@ -1,5 +1,6 @@
 
 
+
 # Read the documentation here https://ndsk.dev
 
 # Introduction
@@ -27,6 +28,93 @@
 | **Ndsk**         | ~ 0.4s             | ~ 0.4s            | ~ 0.008s             |
 | **Remix**          | ~ 0.7s              | ~ 1.7s         | ~ 0.010s              |
 | **Next**           | ~ 2.2s              | ~ 8s         | ~ 0.008s              |
+
+-
+# He is so fast
+~~~shell
+$ npm run dev
+> My App@1.0.0 dev
+> ndsk
+
+> Startup time:198ms Ready on http://localhost:3000
+
+$ npm run build
+> My App@1.0.0 build
+> ndsk build
+
+✨ /home/work/ndsk_example/src/pages/index.js 139.36KB
+
+$ npm run start
+> My App@1.0.0 start
+> ndsk start
+
+> Startup time:187ms Ready on http://localhost:3000
+
+~~~
+
+# Start installation
+
+**Create a project directory and enter**
+~~~shell
+$ mkdir my-nodestack-app
+$ cd my-nodestack-app 
+~~~
+
+\
+**Next, start creating the project and installing the necessary packages. If prompted, just press `Enter`**
+~~~shell
+$ npm create nodestack
+$ npm i
+~~~
+
+\
+**Now that you have completed the installation, you should see the following directory structure**
+~~~js
+my-nodestack-app
+├── src
+│   ├── pages
+│   │   └── index.js
+│   │   └── style.scss
+├── ndsk.config.js
+└── package.json
+~~~
+
+\
+**Open the package.json file, you can see the following content in the script**
+~~~js
+{
+    "scripts": {
+        "dev": "ndsk",
+        "build": "ndsk build",
+        "start": "ndsk start"
+    }
+}
+~~~
+
+\
+**These scripts correspond to different stages of the program:**
+
+- dev: Run `npm run dev` to start nodestack in development mode
+- build: Run `npm run build` to start building the project
+- start: Run `npm run start` to run the built project in production environment
+
+\
+**Now enter the following code in the terminal to start our first project**
+~~~shell
+$ npm run dev
+~~~
+
+\
+**You can see the following log output**
+~~~shell
+> My App@1.0.0 dev
+> ndsk
+
+> Startup time:450ms Ready on http://localhost:3000
+~~~
+
+# **[Get Start](https://github.com/rockyshi1993/nodestack/blob/main/README.md)**
+
 
 # Donate
 
