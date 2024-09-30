@@ -119,7 +119,7 @@ $ npm run dev
 
 # Donate
 
-**In the past year or so, I have given up all other work and devoted all my time to the current project. In order to maintain normal updates and maintenance, I hope to get financial sponsorship. If you are interested, you can contact me by email at rockyshi1993@gmail.com**
+<!-- **In the past year or so, I have given up all other work and devoted all my time to the current project. In order to maintain normal updates and maintenance, I hope to get financial sponsorship. If you are interested, you can contact me by email at rockyshi1993@gmail.com** -->
 
 **You can donate to me through the following link**
 - `PayPal:` https://paypal.me/rockyshi1993
