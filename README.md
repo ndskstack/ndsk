@@ -114,7 +114,7 @@ $ npm run dev
 > Startup time:450ms Ready on http://localhost:3000
 ~~~
 
-# **[Get Start](https://github.com/rockyshi1993/nodestack/blob/main/README.md)**
+# **[Get Start](https://ndsk.dev/?id=install)**
 
 
 # Donate
