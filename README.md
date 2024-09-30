@@ -43,6 +43,7 @@ $ npm run build
 > ndsk build
 
 ✨ /home/work/ndsk_example/src/pages/index.js 139.36KB
+✨ compiled 1 file in : 377ms
 
 $ npm run start
 > My App@1.0.0 start
