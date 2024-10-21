@@ -1,9 +1,7 @@
-FROM node:latest
-
+FROM node:20-alpine
 WORKDIR /app
-
 COPY . .
 
-RUN npm i
+RUN npm install
 
 CMD ["node", "node_modules/@ndsk/ndsk/index.js"]
