@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    image: ndsk
+    ports:
+     - "3000:3000"
