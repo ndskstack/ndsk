@@ -31,28 +31,6 @@
 | **Next**           | ~ 2.2s              | ~ 8s         | ~ 0.008s              |
 
 -
-# Start the development environment, compile and start
-~~~shell
-$ npm run dev
-> My App@1.0.0 dev
-> ndsk
-
-> Startup time:198ms Ready on http://localhost:3000
-
-$ npm run build
-> My App@1.0.0 build
-> ndsk build
-
-✨ /home/work/ndsk_example/src/pages/index.js 139.36KB
-✨ compiled 1 file in : 377ms
-
-$ npm run start
-> My App@1.0.0 start
-> ndsk start
-
-> Startup time:187ms Ready on http://localhost:3000
-
-~~~
 
 # Start installation
 
