@@ -36,15 +36,13 @@
 
 **Create a project directory and enter**
 ~~~shell
-$ mkdir my-nodestack-app
-$ cd my-nodestack-app 
+$ mkdir my_app && cd my_app 
 ~~~
 
 \
 **Next, start creating the project and installing the necessary packages. If prompted, just press `Enter`**
 ~~~shell
-$ npm create nodestack
-$ npm i
+$ npm create ndsk && npm i
 ~~~
 
 \
