@@ -1,5 +1,14 @@
-export default ()=>{
+export default (props)=>{
+    console.log(props)
     return (
-        <div>layout1/app/index</div>
+        <html lang="en">
+        <head>
+          <title>layout1</title> 
+        </head>
+        <body> 
+        <div>layout2/app/index----{props.name}</div>
+        </body>
+      </html> 
+       
     )
 }

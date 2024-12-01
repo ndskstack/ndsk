@@ -1,5 +1,5 @@
-export default ()=>{
+export default (props)=>{
     return (
-        <div>layout2/app/index</div>
+        <div>layout2/app/index----{props.name}</div>
     )
 }
